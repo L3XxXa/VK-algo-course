@@ -73,7 +73,13 @@ class LinkedList<T> {
         return nodes
     }
 
-    forEach() {}
+    forEach(callbackFunction: (element: ListNode<T>) => void) {
+        let currentNode = this.firstNode
+        while(currentNode) {
+            callbackFunction(currentNode)
+            currentNode = currentNode.nextNode
+        }
+    }
 }
 
 const linkedList = new LinkedList<string>()
@@ -82,4 +88,7 @@ linkedList.addToFront('This is head')
 linkedList.addToTail('This is tail')
 linkedList.addWithIndex('This is after first', 0)
 linkedList.addWithIndex('This is after all', 100)
+linkedList.forEach((element) => {
+    element.data = `Updated with forEach ${element.data}`
+})
 console.log(linkedList.toString())
