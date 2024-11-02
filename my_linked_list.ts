@@ -73,11 +73,20 @@ class LinkedList<T> {
         return nodes
     }
 
-    forEach(callbackFunction: (element: ListNode<T>) => void) {
+    forEach(callbackFunction: (element: ListNode<T>, index: number) => void) {
         let currentNode = this.firstNode
-        while(currentNode) {
-            callbackFunction(currentNode)
+        let index = 0
+        while (currentNode) {
+            callbackFunction(currentNode, index)
             currentNode = currentNode.nextNode
+            index ++
+        }
+    }
+
+    map(callbackFunction: (element: ListNode<T>) => any) {
+        let currentNode = this.firstNode
+        while (currentNode) {
+            currentNode = callbackFunction(currentNode)
         }
     }
 }
