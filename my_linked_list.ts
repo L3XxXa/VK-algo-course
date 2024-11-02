@@ -2,22 +2,22 @@ class ListNode<T> {
     data: T
     nextNode: ListNode<T> | null
 
-    constructor(data: T, nextNode: ListNode<T> | null){
+    constructor (data: T, nextNode: ListNode<T> | null){
         this.data = data
         this.nextNode = nextNode
     }
 }
 
-class LinkedList<Type> {
-    firstNode: ListNode<Type> | null
+class LinkedList<T> {
+    firstNode: ListNode<T> | null
 
     constructor () {
         this.firstNode = null
     }
 
-    addToFront(data: Type) {
+    addToFront(data: T) {
         const newNode = new ListNode(data, null)
-        if(this.firstNode) {
+        if (this.firstNode) {
             newNode.nextNode = this.firstNode
             this.firstNode = newNode
         } else {
@@ -25,7 +25,7 @@ class LinkedList<Type> {
         }
     }
 
-    addToTail(data: Type) {
+    addToTail(data: T) {
         const newNode = new ListNode(data, null)
         if(this.firstNode) {
             let currentNode = this.firstNode
@@ -38,11 +38,11 @@ class LinkedList<Type> {
         }
     }
 
-    addWithIndex(data: Type, index: number = 0) {
+    addWithIndex(data: T, index: number = 0) {
         let currentNode = this.firstNode
-        if(currentNode) {
+        if (currentNode) {
             for (let i = 0; i < index; ++i) {
-                if(currentNode.nextNode) {
+                if (currentNode.nextNode) {
                     currentNode = currentNode.nextNode
                 } else { 
                     console.log(`Length of this linked list < ${index}. Will place this node in the tail`)
@@ -61,9 +61,9 @@ class LinkedList<Type> {
 
     toString(): string {
         let nodes = '['
-        if(this.firstNode) {
+        if (this.firstNode) {
             let currentNode = this.firstNode
-            while(currentNode.nextNode) {
+            while (currentNode.nextNode) {
                 nodes = nodes.concat(`${currentNode.data}, `)
                 currentNode = currentNode.nextNode
             }
@@ -72,6 +72,8 @@ class LinkedList<Type> {
         nodes = nodes.concat(']')
         return nodes
     }
+
+    forEach() {}
 }
 
 const linkedList = new LinkedList<string>()
