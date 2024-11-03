@@ -45,6 +45,8 @@ class Dequeue<T> {
         if (nodeToPop !== this.tail) {
             this.head.nextNode = nodeToPop!.nextNode
             nodeToPop!.nextNode!.previousNode = this.head
+            this.size --
+            return nodeToPop!.data
         }
         return null
 
@@ -55,6 +57,8 @@ class Dequeue<T> {
         if (nodeToPop !== this.head) {
             this.tail.previousNode = nodeToPop!.previousNode
             nodeToPop!.previousNode!.nextNode = this.tail
+            this.size --
+            return nodeToPop!.data
         }
         return null
     }
