@@ -62,14 +62,14 @@ class RingArrayQueue<T> {
     }
 }
 
-const arrayQueue = new ArrayQueue()
+const arrayQueue = new ArrayQueue<string>()
 arrayQueue.enqueue('Hello')
 arrayQueue.enqueue('World')
 arrayQueue.traverse()
 console.log(`Вышел '${arrayQueue.dequeue()}'`)
 arrayQueue.traverse()
 
-const ringArrayQueue = new RingArrayQueue(3)
+const ringArrayQueue = new RingArrayQueue<string>(3)
 ringArrayQueue.enqueue('Hello')
 ringArrayQueue.enqueue('I am')
 ringArrayQueue.enqueue('L3XxXa')
