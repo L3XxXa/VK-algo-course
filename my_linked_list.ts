@@ -83,12 +83,45 @@ class LinkedList<T> {
         }
     }
 
-    map(callbackFunction: (element: ListNode<T>) => any) {
+    findNode(data: T) {
         let currentNode = this.firstNode
-        while (currentNode) {
-            currentNode = callbackFunction(currentNode)
-        }
+        while (currentNode?.nextNode) {
+            if (data === currentNode.data) {
+                return currentNode
+            } else {
+                currentNode = currentNode.nextNode
+            }
+        } 
+        throw Error('No such node')
     }
+
+    findIndex(data: T) {
+        let currentNode = this.firstNode
+        let idx: number = 0
+        while (currentNode?.nextNode) {
+            if (data === currentNode) {
+                return idx
+            }
+            idx ++
+        }
+        return -1
+    }
+}
+
+
+class DoublyLinkedListNode<T> {
+    data: T
+    previousNode: DoublyLinkedListNode<T>
+    nextNode: DoublyLinkedListNode<T>
+
+    constructor(data: T, previousNode: DoublyLinkedListNode<T>, nextNode: DoublyLinkedListNode<T>) {
+        this.data = data
+        this.previousNode = previousNode
+        this.nextNode = nextNode
+    }
+}
+class DoublyLinkedList<T> {
+    firstNode: DoublyLinkedList<T>
 }
 
 const linkedList = new LinkedList<string>()
