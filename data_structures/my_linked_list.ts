@@ -1,5 +1,5 @@
-class ListNode<T> {
-    data: T
+export class ListNode<T> {
+    data: T | null
     nextNode: ListNode<T> | null
 
     constructor (data: T, nextNode: ListNode<T> | null){
