@@ -24,7 +24,7 @@ export class ArrayQueue<T> {
     }
 
     peek() {
-        return this.queue[this.size() - 1]
+        return this.queue[0]
     }
 }
 
