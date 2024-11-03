@@ -8,7 +8,7 @@ class ListNode<T> {
     }
 }
 
-class LinkedList<T> {
+export class LinkedList<T> {
     firstNode: ListNode<T> | null
 
     constructor () {
@@ -123,14 +123,3 @@ class DoublyLinkedListNode<T> {
 class DoublyLinkedList<T> {
     firstNode: DoublyLinkedList<T>
 }
-
-const linkedList = new LinkedList<string>()
-
-linkedList.addToFront('This is head')
-linkedList.addToTail('This is tail')
-linkedList.addWithIndex('This is after first', 0)
-linkedList.addWithIndex('This is after all', 100)
-linkedList.forEach((element) => {
-    element.data = `Updated with forEach ${element.data}`
-})
-console.log(linkedList.toString())

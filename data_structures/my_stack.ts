@@ -9,7 +9,7 @@ class StackNode<T> {
 }
 
 // Реализация Стека на односвязном списке
-class MyLinkedStack<T> {
+export class MyLinkedStack<T> {
     private firstItem: StackNode<T> | null
     private size: number
 
@@ -84,17 +84,3 @@ class MyArrayStack<T> {
         }
     }
 }
-
-const myStack = new MyLinkedStack<string>(5)
-myStack.push('Hello')
-myStack.push('world!')
-myStack.traverse()
-console.log(`Popped '${myStack.pop()}'`)
-myStack.traverse()
-
-const myArrayStack = new MyArrayStack<string>()
-myArrayStack.push('Hello')
-myArrayStack.push('World!')
-myArrayStack.traverse()
-console.log(`Popped '${myArrayStack.pop()}'`)
-myArrayStack.traverse()

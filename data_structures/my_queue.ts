@@ -1,4 +1,4 @@
-class ArrayQueue<T> {
+export class ArrayQueue<T> {
     private queue: T[] = []
     constructor(private capacity: number = Infinity) {}
 
@@ -22,9 +22,13 @@ class ArrayQueue<T> {
             console.log(item)
         }
     }
+
+    peek() {
+        return this.queue[this.size() - 1]
+    }
 }
 
-class RingArrayQueue<T> {
+export class RingArrayQueue<T> {
     private queue: (T | null)[]
 
     private left: number = 0
@@ -61,26 +65,3 @@ class RingArrayQueue<T> {
        console.log(this.queue) 
     }
 }
-
-const arrayQueue = new ArrayQueue<string>()
-arrayQueue.enqueue('Hello')
-arrayQueue.enqueue('World')
-arrayQueue.traverse()
-console.log(`Вышел '${arrayQueue.dequeue()}'`)
-arrayQueue.traverse()
-
-const ringArrayQueue = new RingArrayQueue<string>(3)
-ringArrayQueue.enqueue('Hello')
-ringArrayQueue.enqueue('I am')
-ringArrayQueue.enqueue('L3XxXa')
-ringArrayQueue.traverse()
-console.log(`Вышел '${ringArrayQueue.dequeue()}'`)
-ringArrayQueue.traverse()
-ringArrayQueue.enqueue('Overflowed')
-ringArrayQueue.traverse()
-ringArrayQueue.enqueue('Overlowed 2')
-ringArrayQueue.traverse()
-console.log(ringArrayQueue.dequeue())
-ringArrayQueue.traverse()
-ringArrayQueue.enqueue('Overflowed 3')
-ringArrayQueue.traverse()

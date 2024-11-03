@@ -10,7 +10,7 @@ class DequeueListNode<T> {
     }
 }
 
-class Dequeue<T> {
+export class Dequeue<T> {
     head: DequeueListNode<T>
     tail: DequeueListNode<T>
     private size = 0
@@ -77,18 +77,3 @@ class Dequeue<T> {
         return arr
     }
 }
-
-const myDequeue = new Dequeue()
-myDequeue.pushFront('hello')
-myDequeue.pushFront('world!')
-myDequeue.pushBack('hello to tail')
-myDequeue.pushBack('world to tail')
-console.log(myDequeue.traverse())
-myDequeue.popFront()
-myDequeue.popFront()
-myDequeue.popFront()
-myDequeue.popFront()
-console.log(myDequeue.traverse())
-myDequeue.popFront()
-console.log(myDequeue.traverse())
-
