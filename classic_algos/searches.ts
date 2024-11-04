@@ -90,10 +90,39 @@ function findLastWithBinarySearch(arr: number[], element: number) {
     }
 }
 
+/**
+ * Тернарный поиск. Подходит ТОЛЬКО для отсортированного массива
+ * 
+ * По времени: log_3(N)
+ * По памяти: O(1) 
+ */
+function ternarySearch(arr: number[], element: number) {
+    let l = 0
+    let r = arr.length
+    if (arr[l] > element || arr[r] < element) {
+        return -1
+    }
+    while(l < r) {
+        const middle1 = Math.floor(l + (r - l) / 3)
+        const middle2 = Math.floor(r - (r - l) / 3)
+        if (arr[middle1] === element) {
+            return middle1
+        } else if (arr[middle2] === element) {
+            return middle2 
+        } else if (arr[middle1] < element) {
+            l = middle1 + 1
+        } else if (arr[middle2] > element) {
+            r = middle2 - 1
+        }
+    }
+    return -1
+}
+
 const arr = [1, 2, 3, 4, 5, 6, 7, 8]
 const element = 3
 console.log(linearSearch(arr, element))
 console.log(binarySearch(arr, element))
+console.log(ternarySearch(arr, element))
 
 
 const arrWithDuplicates = [1, 2, 3, 3, 3, 4, 5, 6, 7, 8]
