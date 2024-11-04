@@ -118,11 +118,35 @@ function ternarySearch(arr: number[], element: number) {
     return -1
 }
 
+/**
+ * Эксопненциальный поиск. Подходит ТОЛЬКО для остортированных массивов
+ * Используется для уточнения диапазона поиска. 
+ * По времени: log(М), где М - индекс элемента, который надо найти
+ * По памяти: O(1) 
+ * 
+ * Можно комбинировать с бинарным поиском, то тогда общая сложность алгоритма log(M)
+ */
+function exponentialSearch(arr: number[], element: number): {l: number, r: number} {
+    let border = 1
+    let lastElement = arr.length - 1
+    while (border < lastElement  && arr[border] < element) {
+        if (arr[border] === element) {
+            return {l: border, r: border * 2}
+        }
+        border *= 2
+        if (border > lastElement) {
+            return {l: border / 2, r: lastElement}
+        }
+    }
+    return {l: border / 2, r: border}
+}
+
 const arr = [1, 2, 3, 4, 5, 6, 7, 8]
 const element = 3
 console.log(linearSearch(arr, element))
 console.log(binarySearch(arr, element))
 console.log(ternarySearch(arr, element))
+console.log(exponentialSearch(arr, 5))
 
 
 const arrWithDuplicates = [1, 2, 3, 3, 3, 4, 5, 6, 7, 8]
