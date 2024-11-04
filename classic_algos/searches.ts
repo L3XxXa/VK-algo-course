@@ -135,10 +135,10 @@ function exponentialSearch(arr: number[], element: number): {l: number, r: numbe
         }
         border *= 2
         if (border > lastElement) {
-            return {l: border / 2, r: lastElement}
+            return {l: Math.floor(border / 2), r: lastElement}
         }
     }
-    return {l: border / 2, r: border}
+    return {l: Math.floor(border / 2), r: border}
 }
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8]
