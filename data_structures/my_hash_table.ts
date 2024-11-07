@@ -36,8 +36,9 @@ class MyHashTable<T> {
         const index = this.hash(key)
         return this.data[index] ?? null
     }
-}
 
-const hashTable = new MyHashTable<string>(10)
-hashTable.insert('hello', 'world')
-console.log(hashTable.search('hello'))
+    delete(key: string) {
+        const index = this.hash(key)
+        this.data.splice(index, 1)
+    }
+}
