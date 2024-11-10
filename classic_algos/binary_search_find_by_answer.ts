@@ -1,4 +1,4 @@
-function binarySearch(w: number, h: number, n: number) {
+function binarySearchByAnswer(w: number, h: number, n: number) {
     let l = Math.max(w, h)
     let r = l * n
 
