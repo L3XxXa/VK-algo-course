@@ -10,7 +10,6 @@ class BinaryTreeNode<T> {
     }
 }
 
-
 /**
  * Симметричное дерево через BFS
  */
@@ -36,6 +35,9 @@ function isBinaryTreeSymmetricBFS(root: BinaryTreeNode<number>) {
     return true
 }
 
+/**
+ * Симметричное дерево через DFS
+ */
 function isBinaryTreeSymmetricDFS(root: BinaryTreeNode<number> | undefined | null) {
     if (!root) {
         return true
