@@ -1,4 +1,4 @@
-class BinaryTreeNode<T> {
+export class BinaryTreeNode<T> {
     left?: BinaryTreeNode<T>
     right?: BinaryTreeNode<T>
     data: number
@@ -10,7 +10,7 @@ class BinaryTreeNode<T> {
     }
 }
 
-class BinarySearchTree{
+export class BinarySearchTree{
     root?: BinaryTreeNode<number>
 
     constructor(root?: BinaryTreeNode<number>) {
