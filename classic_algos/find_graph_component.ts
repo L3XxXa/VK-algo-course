@@ -8,7 +8,7 @@ function dfs(graph: Map<string, string[]>, startVertice: string, visited: Map<st
     }
 }
 
-function findComponents(graph: Map<string, string[]>, startVertice: string) {
+function findComponents(graph: Map<string, string[]>) {
     const visited = new Map<string, boolean>()
     for (const vertice of graph.keys()) {
         visited.set(vertice, false)
@@ -33,7 +33,7 @@ function dfsColor(graph: Map<string, string[]>, startVertice: string, colors: Ma
     }
 }
 
-function colorGraph(graph: Map<string, string[]>, startVertice: string) {
+function colorGraph(graph: Map<string, string[]>) {
     const colors = new Map<string, number>()
     for (const vertice of graph.keys()) {
         colors.set(vertice, 0)
@@ -42,7 +42,6 @@ function colorGraph(graph: Map<string, string[]>, startVertice: string) {
     for (const vertice of graph.keys()) {
         if (colors.get(vertice) === 0) {
             color++;
-            const component: string[] = []
             dfsColor(graph, vertice, colors, color)
         }
     }
@@ -59,5 +58,5 @@ vertices.set('F', ['E',])
 vertices.set('G', ['E'])
 vertices.set('O', [])
 
-console.log(findComponents(vertices, 'A'))
-console.log(colorGraph(vertices, 'A'))
+console.log(findComponents(vertices))
+console.log(colorGraph(vertices))
