@@ -1,7 +1,7 @@
 /**
  * В виде словаря: O(V + E)
  */
-function dfs(graph: Map<string, string[]>, startVertice: string, visited: string[]) {
+export function dfs(graph: Map<string, string[]>, startVertice: string, visited: string[]) {
     visited.push(startVertice)
     for (const neighbour of graph.get(startVertice)) {
         if (!visited.includes(neighbour)) {
@@ -11,7 +11,7 @@ function dfs(graph: Map<string, string[]>, startVertice: string, visited: string
     return visited
 }
 
-function bfs(graph: Map<string, string[]>, startVertice: string) {
+export function bfs(graph: Map<string, string[]>, startVertice: string) {
     const visited: string[] = []
     const queue = [startVertice]
     while (queue.length > 0) {
